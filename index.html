@@ -13,17 +13,18 @@ if (window.DeviceOrientationEvent) {
             if (response === 'granted') {
                 // Permission granted, start using gyroscope
                 startUsingGyroscope();
-                window.alert("Gyroscope granted");
+                //window.alert("Gyroscope granted");
             } else {
                 // Permission denied, handle accordingly
                 handlePermissionDenied();
-                window.alert("Gyroscope failed to start");
+                //window.alert("Gyroscope failed to start");
             }
         })
         .catch(console.error);
 } else {
     // Gyroscope not available, handle accordingly
     handleGyroscopeNotAvailable();
+    window.alert("Gyroscope failed to start");
 }
 
 function startUsingGyroscope() {
@@ -33,17 +34,17 @@ function startUsingGyroscope() {
 
 function handleDeviceOrientation(event) {
     // Handle gyroscope data (event.alpha, event.beta, event.gamma)
-    console.log('Alpha:', event.alpha, 'Beta:', event.beta, 'Gamma:', event.gamma);
+    window.alert('Alpha:', event.alpha, 'Beta:', event.beta, 'Gamma:', event.gamma);
 }
 
 function handlePermissionDenied() {
     // Handle situation where permission to access gyroscope is denied
-    console.log('Permission to access gyroscope denied.');
+    window.alert('Permission to access gyroscope denied.');
 }
 
 function handleGyroscopeNotAvailable() {
     // Handle situation where gyroscope is not available on the device
-    console.log('Gyroscope not available on this device.');
+    window.alert('Gyroscope not available on this device.');
 }
     </script>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
