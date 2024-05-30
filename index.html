@@ -114,6 +114,46 @@
         });
       };
       document.body.appendChild(script);
+
+      // Check if gyroscope is available
+if (window.DeviceOrientationEvent) {
+    // Request permission to access gyroscope
+    DeviceOrientationEvent.requestPermission()
+        .then(response => {
+            if (response === 'granted') {
+                // Permission granted, start using gyroscope
+                startUsingGyroscope();
+            } else {
+                // Permission denied, handle accordingly
+                handlePermissionDenied();
+            }
+        })
+        .catch(console.error);
+} else {
+    // Gyroscope not available, handle accordingly
+    handleGyroscopeNotAvailable();
+}
+
+function startUsingGyroscope() {
+    // Add event listener for device orientation change
+    window.addEventListener('deviceorientation', handleDeviceOrientation);
+}
+
+function handleDeviceOrientation(event) {
+    // Handle gyroscope data (event.alpha, event.beta, event.gamma)
+    console.log('Alpha:', event.alpha, 'Beta:', event.beta, 'Gamma:', event.gamma);
+}
+
+function handlePermissionDenied() {
+    // Handle situation where permission to access gyroscope is denied
+    console.log('Permission to access gyroscope denied.');
+}
+
+function handleGyroscopeNotAvailable() {
+    // Handle situation where gyroscope is not available on the device
+    console.log('Gyroscope not available on this device.');
+}
+
     </script>
   </body>
 </html>
