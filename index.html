@@ -13,11 +13,11 @@ if (window.DeviceOrientationEvent) {
             if (response === 'granted') {
                 // Permission granted, start using gyroscope
                 startUsingGyroscope();
-                alert("Gyroscope granted");
+                window.alert("Gyroscope granted");
             } else {
                 // Permission denied, handle accordingly
                 handlePermissionDenied();
-                alert("Gyroscope failed to start");
+                window.alert("Gyroscope failed to start");
             }
         })
         .catch(console.error);
