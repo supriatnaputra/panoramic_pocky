@@ -4,49 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | pocky_panoramic_tour</title>
-    <script>
-      // Check if gyroscope is available
-if (window.DeviceOrientationEvent) {
-    // Request permission to access gyroscope
-    DeviceOrientationEvent.requestPermission()
-        .then(response => {
-            if (response === 'granted') {
-                // Permission granted, start using gyroscope
-                startUsingGyroscope();
-                //window.alert("Gyroscope granted");
-            } else {
-                // Permission denied, handle accordingly
-                handlePermissionDenied();
-                //window.alert("Gyroscope failed to start");
-            }
-        })
-        .catch(console.error);
-} else {
-    // Gyroscope not available, handle accordingly
-    handleGyroscopeNotAvailable();
-    window.alert("Gyroscope failed to start");
-}
-
-function startUsingGyroscope() {
-    // Add event listener for device orientation change
-    window.addEventListener('deviceorientation', handleDeviceOrientation);
-}
-
-function handleDeviceOrientation(event) {
-    // Handle gyroscope data (event.alpha, event.beta, event.gamma)
-    window.alert('Alpha:', event.alpha, 'Beta:', event.beta, 'Gamma:', event.gamma);
-}
-
-function handlePermissionDenied() {
-    // Handle situation where permission to access gyroscope is denied
-    window.alert('Permission to access gyroscope denied.');
-}
-
-function handleGyroscopeNotAvailable() {
-    // Handle situation where gyroscope is not available on the device
-    window.alert('Gyroscope not available on this device.');
-}
-    </script>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -99,11 +56,11 @@ function handleGyroscopeNotAvailable() {
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/build_gyro_test6.loader.js";
+      var loaderUrl = buildUrl + "/build_gyro_test7.loader.js";
       var config = {
-        dataUrl: buildUrl + "/build_gyro_test6.data",
-        frameworkUrl: buildUrl + "/build_gyro_test6.framework.js",
-        codeUrl: buildUrl + "/build_gyro_test6.wasm",
+        dataUrl: buildUrl + "/build_gyro_test7.data",
+        frameworkUrl: buildUrl + "/build_gyro_test7.framework.js",
+        codeUrl: buildUrl + "/build_gyro_test7.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "pocky_panoramic_tour",
@@ -157,9 +114,6 @@ function handleGyroscopeNotAvailable() {
         });
       };
       document.body.appendChild(script);
-
-      
-
     </script>
   </body>
 </html>
